@@ -5,6 +5,7 @@
  */
 package com.giovanitrevisol.md.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +33,8 @@ public class Produto implements Serializable {
     private String nome;
     private Double preco;
 
-    //anotacoes de relacionamento entre tabelas
-    @ManyToMany
+    @JsonBackReference
+    @ManyToMany //anotacoes de relacionamento entre tabelas
     @JoinTable(name = "PRODUTO_CATEGORIA",
             joinColumns = @JoinColumn(name = "produto_id"),
             inverseJoinColumns = @JoinColumn(name = "categoria_id")

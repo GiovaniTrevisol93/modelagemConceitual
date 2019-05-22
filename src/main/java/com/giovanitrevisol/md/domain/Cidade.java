@@ -5,46 +5,41 @@
  */
 package com.giovanitrevisol.md.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Giovani Trevisol
  */
+
 @Entity
-public class Categoria implements Serializable{
-    private static final long serialVersionUID = 1l;
+public class Cidade implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    
-    @JsonManagedReference
-    @ManyToMany(mappedBy = "categorias")
-    private List<Produto> Produtos = new ArrayList<>();
 
-    //construtor vazio
-    public Categoria() {
+    @ManyToOne
+    @JoinColumn(name = "estado_id")
+    private Estado estado;
 
+    public Cidade() {
     }
 
-    //construtor com atributos
-    public Categoria(Integer id, String nome) {
+    public Cidade(Integer id, String nome, Estado estado) {
         this.id = id;
         this.nome = nome;
+        this.estado = estado;
     }
 
-    
     public Integer getId() {
         return id;
     }
@@ -61,21 +56,18 @@ public class Categoria implements Serializable{
         this.nome = nome;
     }
 
-    public List<Produto> getProdutos() {
-        return Produtos;
+    public Estado getEstado() {
+        return estado;
     }
 
-    public void setProdutos(List<Produto> Produtos) {
-        this.Produtos = Produtos;
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
-    
-    
-    
-    //hashCode
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.id);
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -90,10 +82,9 @@ public class Categoria implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Categoria other = (Categoria) obj;
+        final Cidade other = (Cidade) obj;
         return true;
     }
-    
-            
 
+    
 }

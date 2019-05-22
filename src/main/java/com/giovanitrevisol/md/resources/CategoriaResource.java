@@ -31,6 +31,7 @@ public class CategoriaResource {
     @RequestMapping (value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> find(@PathVariable Integer id){
         //PathVariable diz que o id da resquest é o memo passado neste metodo
+        
         Categoria obj = service.buscar(id);
         return ResponseEntity.ok().body(obj);
     }

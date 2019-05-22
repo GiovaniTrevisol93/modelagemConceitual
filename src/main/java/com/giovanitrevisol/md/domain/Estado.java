@@ -5,7 +5,6 @@
  */
 package com.giovanitrevisol.md.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,37 +13,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author Giovani Trevisol
  */
 @Entity
-public class Categoria implements Serializable{
-    private static final long serialVersionUID = 1l;
+public class Estado implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    
-    @JsonManagedReference
-    @ManyToMany(mappedBy = "categorias")
-    private List<Produto> Produtos = new ArrayList<>();
 
-    //construtor vazio
-    public Categoria() {
+    @OneToMany(mappedBy = "estado")
+    private List<Cidade> cidades = new ArrayList<Cidade>();
 
+    public Estado() {
     }
 
-    //construtor com atributos
-    public Categoria(Integer id, String nome) {
+    public Estado(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
 
-    
     public Integer getId() {
         return id;
     }
@@ -61,17 +54,14 @@ public class Categoria implements Serializable{
         this.nome = nome;
     }
 
-    public List<Produto> getProdutos() {
-        return Produtos;
+    public List<Cidade> getCidades() {
+        return cidades;
     }
 
-    public void setProdutos(List<Produto> Produtos) {
-        this.Produtos = Produtos;
+    public void setCidades(List<Cidade> cidades) {
+        this.cidades = cidades;
     }
-    
-    
-    
-    //hashCode
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -90,10 +80,10 @@ public class Categoria implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Categoria other = (Categoria) obj;
+        final Estado other = (Estado) obj;
         return true;
     }
     
-            
+    
 
 }
