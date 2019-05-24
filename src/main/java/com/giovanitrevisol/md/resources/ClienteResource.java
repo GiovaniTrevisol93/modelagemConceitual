@@ -5,10 +5,8 @@
  */
 package com.giovanitrevisol.md.resources;
 
-import com.giovanitrevisol.md.Services.CategoriaService;
-import com.giovanitrevisol.md.domain.Categoria;
-import java.util.ArrayList;
-import java.util.List;
+import com.giovanitrevisol.md.Services.ClienteService;
+import com.giovanitrevisol.md.domain.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,17 +20,17 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping(value = "/categorias")
-public class CategoriaResource {
+@RequestMapping(value = "/clientes")
+public class ClienteResource {
     
     @Autowired //instancia automaticamento
-    private CategoriaService service;
+    private ClienteService service;
     
     @RequestMapping (value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> find(@PathVariable Integer id){
         //PathVariable diz que o id da resquest é o memo passado neste metodo
         
-        Categoria obj = service.buscar(id);
+        Cliente obj = service.buscar(id);
         return ResponseEntity.ok().body(obj);
     }
     

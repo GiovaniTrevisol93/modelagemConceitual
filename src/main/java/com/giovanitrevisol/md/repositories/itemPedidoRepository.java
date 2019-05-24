@@ -5,7 +5,7 @@
  */
 package com.giovanitrevisol.md.repositories;
 
-import com.giovanitrevisol.md.domain.Cliente;
+import com.giovanitrevisol.md.domain.ItemPedido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
+public interface itemPedidoRepository extends JpaRepository<ItemPedido, Integer>{
     
     
 }

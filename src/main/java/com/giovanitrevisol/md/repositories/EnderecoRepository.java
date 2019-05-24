@@ -5,7 +5,8 @@
  */
 package com.giovanitrevisol.md.repositories;
 
-import com.giovanitrevisol.md.domain.Categoria;
+import com.giovanitrevisol.md.domain.Cliente;
+import com.giovanitrevisol.md.domain.Endereco;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface CategoriaRepository extends JpaRepository<Categoria, Integer>{
+public interface EnderecoRepository extends JpaRepository<Endereco, Integer>{
     
     
 }

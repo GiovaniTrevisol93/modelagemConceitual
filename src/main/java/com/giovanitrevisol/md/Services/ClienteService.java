@@ -5,10 +5,9 @@
  */
 package com.giovanitrevisol.md.Services;
 
-import com.giovanitrevisol.md.domain.Categoria;
-import com.giovanitrevisol.md.repositories.CategoriaRepository;
+import com.giovanitrevisol.md.domain.Cliente;
+import com.giovanitrevisol.md.repositories.ClienteRepository;
 import java.util.Optional;
-import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,15 +16,15 @@ import org.springframework.stereotype.Service;
  * @author Giovani Trevisol
  */
 @Service
-public class CategoriaService {
+public class ClienteService {
 
     @Autowired
-    private CategoriaRepository repo;
+    private ClienteRepository repo;
     
-    public Categoria buscar(Integer id) {
-        Optional<Categoria> obj = repo.findById(id);
+    public Cliente buscar(Integer id) {
+        Optional<Cliente> obj = repo.findById(id);
         return obj.orElseThrow(() -> new com.giovanitrevisol.md.Services.exception.ObjectNotFoundException("Objeto não encontrado! Id:"
-                + id + ", Tipo: " + Categoria.class.getName()));
+                + id + ", Tipo: " + Cliente.class.getName()));
     }
 
 }
