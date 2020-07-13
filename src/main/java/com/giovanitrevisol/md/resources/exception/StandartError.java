@@ -11,8 +11,12 @@ import java.io.Serializable;
  *
  * @author Giovani Trevisol
  */
-public class StandartError implements Serializable{
-    
+public class StandartError implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private Integer status;
     private String msg;
     private long timeStamp;
@@ -22,7 +26,6 @@ public class StandartError implements Serializable{
         this.msg = msg;
         this.timeStamp = timeStamp;
     }
-    
 
     public Integer getStatus() {
         return status;
@@ -47,7 +50,5 @@ public class StandartError implements Serializable{
     public void setTimeStamp(long timeStamp) {
         this.timeStamp = timeStamp;
     }
-    
-    
-    
+
 }

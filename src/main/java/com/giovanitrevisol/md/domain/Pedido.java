@@ -5,7 +5,6 @@
  */
 package com.giovanitrevisol.md.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
@@ -20,15 +19,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import org.hibernate.annotations.Cascade;
 
 /**
  *
  * @author Giovani Trevisol
  */
 @Entity
-public class Pedido implements Serializable{
+public class Pedido implements Serializable {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -44,11 +46,10 @@ public class Pedido implements Serializable{
     @ManyToOne
     @JoinColumn(name = "endereco_entrega_id")
     private Endereco enderecoDeEntrega;
-    
+
     @OneToMany(mappedBy = "id.pedido")
     public Set<ItemPedido> itens = new HashSet<>();
-    
-    
+
     public Pedido() {
     }
 
@@ -66,7 +67,7 @@ public class Pedido implements Serializable{
     public void setItens(Set<ItemPedido> itens) {
         this.itens = itens;
     }
-    
+
     public Integer getId() {
         return id;
     }
@@ -125,10 +126,7 @@ public class Pedido implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Pedido other = (Pedido) obj;
         return true;
     }
-
-
 
 }

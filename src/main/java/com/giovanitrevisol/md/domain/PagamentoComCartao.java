@@ -13,8 +13,12 @@ import javax.persistence.Entity;
  * @author Giovani Trevisol
  */
 @Entity
-public class PagamentoComCartao extends Pagamento{
-    
+public class PagamentoComCartao extends Pagamento {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private Integer nrParcelas;
 
     public PagamentoComCartao() {
@@ -32,7 +36,5 @@ public class PagamentoComCartao extends Pagamento{
     public void setNrParcelas(Integer nrParcelas) {
         this.nrParcelas = nrParcelas;
     }
-    
-    
-    
+
 }

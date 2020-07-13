@@ -5,16 +5,13 @@
  */
 package com.giovanitrevisol.md.domain.enums;
 
-import net.bytebuddy.implementation.bytecode.Throw;
-
 /**
  *
  * @author Giovani Trevisol
  */
 public enum TipoCliente {
 
-    PESSOAFISICA(1, "Pessoa Física"),
-    PESSOAJURIDICA(2, "Pessa Jurídica");
+    PESSOAFISICA(1, "Pessoa Física"), PESSOAJURIDICA(2, "Pessa Jurídica");
 
     private int cod;
     private String descricao;
@@ -42,6 +39,6 @@ public enum TipoCliente {
                 return x;
             }
         }
-        throw  new IllegalArgumentException("Id não encontrado: " + cod);
+        throw new IllegalArgumentException("Id não encontrado: " + cod);
     }
 }

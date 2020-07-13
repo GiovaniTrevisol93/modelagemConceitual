@@ -5,7 +5,6 @@
  */
 package com.giovanitrevisol.md.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -38,18 +37,14 @@ public class Produto implements Serializable {
     private Double preco;
 
     @JsonIgnore
-    @ManyToMany //anotacoes de relacionamento entre tabelas
-    @JoinTable(name = "PRODUTO_CATEGORIA",
-            joinColumns = @JoinColumn(name = "produto_id"),
-            inverseJoinColumns = @JoinColumn(name = "categoria_id")
-    )
+    @ManyToMany // anotacoes de relacionamento entre tabelas
+    @JoinTable(name = "PRODUTO_CATEGORIA", joinColumns = @JoinColumn(name = "produto_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
     private List<Categoria> categorias = new ArrayList<>();
 
     @JsonIgnore
     @OneToMany(mappedBy = "id.produto")
     public Set<ItemPedido> itens = new HashSet<>();
 
-    
     @JsonIgnore
     public List<Pedido> getPedidos() {
         List<Pedido> lista = new ArrayList<>();
@@ -126,7 +121,6 @@ public class Produto implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Produto other = (Produto) obj;
         return true;
     }
 

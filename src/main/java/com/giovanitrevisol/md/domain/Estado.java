@@ -21,8 +21,12 @@ import javax.persistence.OneToMany;
  * @author Giovani Trevisol
  */
 @Entity
-public class Estado implements Serializable{
+public class Estado implements Serializable {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -82,10 +86,7 @@ public class Estado implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Estado other = (Estado) obj;
         return true;
     }
-    
-    
 
 }

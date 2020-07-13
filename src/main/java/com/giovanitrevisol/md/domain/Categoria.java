@@ -5,7 +5,6 @@
  */
 package com.giovanitrevisol.md.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,29 +20,28 @@ import javax.persistence.ManyToMany;
  * @author Giovani Trevisol
  */
 @Entity
-public class Categoria implements Serializable{
+public class Categoria implements Serializable {
     private static final long serialVersionUID = 1l;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    
+
     @ManyToMany(mappedBy = "categorias")
     private List<Produto> Produtos = new ArrayList<>();
 
-    //construtor vazio
+    // construtor vazio
     public Categoria() {
 
     }
 
-    //construtor com atributos
+    // construtor com atributos
     public Categoria(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
 
-    
     public Integer getId() {
         return id;
     }
@@ -67,10 +65,8 @@ public class Categoria implements Serializable{
     public void setProdutos(List<Produto> Produtos) {
         this.Produtos = Produtos;
     }
-    
-    
-    
-    //hashCode
+
+    // hashCode
     @Override
     public int hashCode() {
         int hash = 7;
@@ -89,10 +85,7 @@ public class Categoria implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Categoria other = (Categoria) obj;
         return true;
     }
-    
-            
 
 }

@@ -20,8 +20,12 @@ import javax.persistence.ManyToOne;
  */
 
 @Entity
-public class Cidade implements Serializable{
+public class Cidade implements Serializable {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -82,9 +86,7 @@ public class Cidade implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Cidade other = (Cidade) obj;
         return true;
     }
 
-    
 }

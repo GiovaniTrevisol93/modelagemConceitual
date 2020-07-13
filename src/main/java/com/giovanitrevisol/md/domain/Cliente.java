@@ -5,7 +5,6 @@
  */
 package com.giovanitrevisol.md.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.giovanitrevisol.md.domain.enums.TipoCliente;
 import java.io.Serializable;
@@ -27,8 +26,12 @@ import javax.persistence.OneToMany;
  * @author Giovani Trevisol
  */
 @Entity
-public class Cliente implements Serializable{
-    
+public class Cliente implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -36,14 +39,14 @@ public class Cliente implements Serializable{
     private String email;
     private String cpfOuCnpj;
     private Integer tipo;
-    
+
     @OneToMany(mappedBy = "cliente")
     private List<Endereco> endereco = new ArrayList<Endereco>();
-    
+
     @ElementCollection
     @CollectionTable(name = "TELEFONE")
     private Set<String> telefones = new HashSet<>();
-    
+
     @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos = new ArrayList<>();
@@ -66,8 +69,6 @@ public class Cliente implements Serializable{
     public void setPedidos(List<Pedido> pedidos) {
         this.pedidos = pedidos;
     }
-    
-    
 
     public Integer getId() {
         return id;
@@ -143,15 +144,7 @@ public class Cliente implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Cliente other = (Cliente) obj;
         return true;
     }
-    
-    
-    
-    
-    
-       
-    
-    
+
 }

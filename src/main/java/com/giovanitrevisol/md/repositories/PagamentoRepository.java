@@ -5,7 +5,6 @@
  */
 package com.giovanitrevisol.md.repositories;
 
-import com.giovanitrevisol.md.domain.Cliente;
 import com.giovanitrevisol.md.domain.Pagamento;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface PagamentoRepository extends JpaRepository<Pagamento, Integer>{
-    
-    
+public interface PagamentoRepository extends JpaRepository<Pagamento, Integer> {
+
 }

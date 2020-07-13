@@ -16,13 +16,18 @@ import javax.persistence.Entity;
 @Entity
 public class PagamentoComBoleto extends Pagamento {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private Date dataVencimento;
     private Date dataPagamento;
 
     public PagamentoComBoleto() {
     }
 
-    public PagamentoComBoleto(Date dataVencimento, Date dataPagamento, Integer id, EstadoPagamento estado, Pedido pedido) {
+    public PagamentoComBoleto(Date dataVencimento, Date dataPagamento, Integer id, EstadoPagamento estado,
+            Pedido pedido) {
         super(id, estado, pedido);
         this.dataVencimento = dataVencimento;
         this.dataPagamento = dataPagamento;
@@ -44,5 +49,4 @@ public class PagamentoComBoleto extends Pagamento {
         this.dataPagamento = dataPagamento;
     }
 
-    
 }
